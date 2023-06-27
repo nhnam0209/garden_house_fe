@@ -40,6 +40,7 @@ export default defineNuxtConfig({
     "nuxt-snackbar",
     "@nuxtjs/device",
     "@storyblok/nuxt",
+    "@vueuse/nuxt",
   ],
 
   storyblok: {

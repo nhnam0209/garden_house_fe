@@ -16,6 +16,8 @@
     "@nuxtjs/i18n": "^8.0.0-beta.12",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
+    "@vueuse/core": "^10.2.0",
+    "@vueuse/nuxt": "^10.2.0",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.6.0",
     "postcss": "^8.4.24",
@@ -26,6 +28,8 @@
     "@morev/vue-transitions": "^2.3.6",
     "@nuxtjs/robots": "^3.0.0",
     "@storyblok/nuxt": "^5.5.0",
-    "nuxt-snackbar": "^1.0.3"
+    "nuxt-property-decorator": "^2.9.1",
+    "nuxt-snackbar": "^1.0.3",
+    "vue-screen": "^2.2.0"
   }
 }

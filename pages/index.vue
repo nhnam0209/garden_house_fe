@@ -1,7 +1,13 @@
 <template>
-  <div>fsaf</div>
+  <div>
+    <div>Index</div>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  layout: "default",
+});
+</script>
 
 <style scoped></style>
