@@ -1,5 +1,5 @@
 <template>
-  <div>productlist</div>
+  <div>Special Offer</div>
 </template>
 
 <script setup lang="ts"></script>

@@ -1,14 +1,10 @@
 <template>
+  <header>
+    <navigation-bar-desktop />
+  </header>
   <div>
-    <slot name="header">
-      <navigation-bar-desktop />
-    </slot>
-    <slot name="content">
-      <Nuxt />
-    </slot>
-    <slot name="footer">
-      <Footer />
-    </slot>
+    <slot></slot>
   </div>
+  <footer>Footer</footer>
 </template>
 <script lang="ts"></script>
