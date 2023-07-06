@@ -2,25 +2,31 @@
   <nav class="h-full flex bg-white w-full z-10 px-4">
     <div class="navbar-list-items flex flex-1 justify-center items-center px-4">
       <div class="w-full inline-flex">
-        <NuxtLink
-          class="navbar-items p-2 rounded-full text-xl hover:bg-slate-100"
-          to="/"
+        <NuxtLink class="p-2 rounded-full text-xl hover:bg-slate-100" to="/"
           >Home</NuxtLink
         >
         <NuxtLink
-          class="navbar-items p-2 ml-4 rounded-full text-xl hover:bg-slate-100"
+          class="p-2 ml-4 rounded-full text-xl hover:bg-slate-100"
           to="/about"
           >About Us</NuxtLink
         >
+        <div
+          class="relative ml-4 text-xl chervon_nav_bar nav_with_sub"
+          @mouseover="onMouseHover"
+          @mouseleave="onMouseLeave"
+        >
+          <NuxtLink
+            class="inline-flex hover:bg-slate-100 rounded-full p-2"
+            to="/products"
+            >Shop <span class="flex self-center"><ChervonDownIcon /></span
+          ></NuxtLink>
+          <SubNavigationBarDesktop
+            :class="{ '!block': isHover }"
+            class="p-10 w-full fixed top-28 right-0 z-[99] hidden bg-white"
+          />
+        </div>
         <NuxtLink
-          class="navbar-items p-2 py-4 border ml-4 rounded-full text-xl hover:bg-slate-100 inline-flex chervon_nav_bar nav_with_sub"
-          to="/products/aquarium"
-          :onmouseover="onMouseHover"
-          :onmouseout="onMouseBlur"
-          >Shop <span class="flex self-center"><ChervonDownIcon /></span
-        ></NuxtLink>
-        <NuxtLink
-          class="navbar-items p-2 ml-4 rounded-full text-xl hover:bg-slate-100"
+          class="p-2 ml-4 rounded-full text-xl hover:bg-slate-100"
           to="/special"
           >Special Offers
         </NuxtLink>
@@ -49,13 +55,6 @@
       </div>
     </div>
   </nav>
-  <SubNavigationBarDesktop
-    class="w-full border"
-    v-if="isHover"
-    :onmouseover="onMouseHover"
-    :onmouseout="onMouseBlur"
-  />
-  <div>{{ isHover }}</div>
 </template>
 
 <script setup lang="ts">
@@ -67,12 +66,11 @@ const onMouseHover = () => {
     isHover.value = true;
   }
 };
-const onMouseBlur = () => {
+const onMouseLeave = () => {
   if (isHover.value) {
     isHover.value = false;
   }
 };
-onMounted(() => {});
 </script>
 
 <style lang="scss" scoped>
@@ -84,11 +82,21 @@ onMounted(() => {});
 .chervon_nav_bar:hover svg {
   transform: rotate(180deg);
 }
+.nav_with_sub:hover::before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  width: 110px;
+  height: 65px;
+  left: -23px;
+}
 
-.nav_with_sub {
-  ::after {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
+.nav_with_sub:hover::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  position: relative;
+  top: -1px;
 }
 </style>
